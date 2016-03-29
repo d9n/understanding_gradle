@@ -1,0 +1,4 @@
+include 'app', 'lib1', 'lib2'
+
+project(':lib1').projectDir = file('../libs/lib1')
+project(':lib2').projectDir = file('../libs/lib2')

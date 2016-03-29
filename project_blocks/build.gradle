@@ -1,0 +1,23 @@
+allprojects {
+    task printName << {
+        println "My project name: '${project.name}'"
+    }
+}
+
+subprojects {
+    task listFiles << {
+        println "Project '${project.name}', files:"
+        fileTree('.').visit { file ->
+            println "\t${file.relativePath}"
+        }
+    }
+}
+
+project(':c') {
+    task listTasks << {
+        println "Project '${project.name}', tasks:"
+        project.tasks.each { task ->
+            println "\t${task.name}"
+        }
+    }
+}

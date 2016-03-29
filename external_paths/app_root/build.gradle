@@ -1,0 +1,11 @@
+subprojects {
+    task listJava << {
+        println "Project '${project.name}', source files:"
+        fileTree('.').include('**/*.java').visit { file ->
+            if (!file.isDirectory()) {
+                println "\t${file.relativePath}"
+            }
+        }
+    }
+}
+
